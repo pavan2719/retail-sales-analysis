@@ -1,0 +1,9 @@
+analysis.py
+import pandas as pd
+def analyze(df):
+insights = {}
+insights['total_sales'] = df['Sales'].sum()
+insights['avg_sales'] = df['Sales'].mean()
+insights['top_region'] = df.groupby('Region')['Sales'].sum().idxmax()
+insights['top_product'] = df.groupby('Product')['Sales'].sum().idxmax()
+return insights
